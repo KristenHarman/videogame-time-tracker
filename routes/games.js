@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const gamesController = require('../controllers/games') //todos => games
+const gamesController = require('../controllers/games') 
 const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, gamesController.getGames)

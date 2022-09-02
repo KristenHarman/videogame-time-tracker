@@ -39,7 +39,7 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
-app.use('/games', gameRoutes) //change todos to games
+app.use('/games', gameRoutes) 
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
