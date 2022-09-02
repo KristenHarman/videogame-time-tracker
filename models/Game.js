@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const TodoSchema = new mongoose.Schema({
-  todo: {
+const GameSchema = new mongoose.Schema({
+  game: {
     type: String,
     required: true,
   },
@@ -15,4 +15,4 @@ const TodoSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Game', GameSchema)
