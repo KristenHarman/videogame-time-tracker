@@ -13,9 +13,20 @@ module.exports = {
     },
     createGame: async (req, res)=>{
         try{
-            await Game.create({game: req.body.gameItem, completed: false, userId: req.user.id})
+            await Game.create({game: req.body.gameItem,
+                health: req.body.decHealth, completed: false, userId: req.user.id})
             console.log('Game has been added!')
             res.redirect('/games')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    decHealth: async (req, res) => {
+        try{
+            await Game.findOneAndUpdate({_id:req.body.gameIdFromJSFile},{
+                health:  {$gte: 0}}, 
+                { $inc: {health: -10 } })
+                console.log('Health  has been decreased!')
         }catch(err){
             console.log(err)
         }
