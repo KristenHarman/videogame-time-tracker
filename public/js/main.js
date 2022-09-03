@@ -79,12 +79,18 @@ async function markIncomplete(){
         console.log(err)
     }
 }
+
+    // Start of Decrease health code 
+
 async function decHealth(){
     const gameId = this.parentNode.dataset.id
     try{
         const response = await fetch('games/markIncomplete', {
             method: 'put',
-            headers: {'Content-type': 'application/json'},
+            decHealth:  function decHealth(){
+                        var health = document.getElementById("health")
+                        health.value -= 10; },
+             headers: {'Content-type':'application/json'},
             body: JSON.stringify({
                 'gameIdFromJSFile': gameId
             })
