@@ -2,7 +2,7 @@ const deleteBtn = document.querySelectorAll('.del')
 const gameItem = document.querySelectorAll('span.not')
 const gameComplete = document.querySelectorAll('span.completed')
 const oneHour = document.querySelectorAll('.oneHourIncExp')
-const decHealth= document.querySelectorAll('.decHealth')
+const decHealthBtn = document.querySelectorAll('.decHealth')
 
 
 Array.from(deleteBtn).forEach((el)=>{
@@ -21,9 +21,8 @@ Array.from(oneHour).forEach((el)=>{
     el.addEventListener('click', )
 })
 
-Array.from(decHealth).forEach((el)=>{
+Array.from(decHealthBtn).forEach((el)=>{
     el.addEventListener('click', decHealth)
-
 })
 
 async function deleteGame(){
@@ -85,7 +84,7 @@ async function markIncomplete(){
 async function decHealth(){
     const gameId = this.parentNode.dataset.id
     try{
-        const response = await fetch('games/markIncomplete', {
+        const response = await fetch('games/decHealth', {
             method: 'put',
             decHealth:  function decHealth(){
                         var health = document.getElementById("health")
