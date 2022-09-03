@@ -1,5 +1,3 @@
-const { decHealth } = require("../../controllers/games")
-
 const deleteBtn = document.querySelectorAll('.del')
 const gameItem = document.querySelectorAll('span.not')
 const gameComplete = document.querySelectorAll('span.completed')
