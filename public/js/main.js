@@ -17,7 +17,7 @@ Array.from(gameComplete).forEach((el)=>{
 async function deleteGame(){
     const gameId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteGame', {
+        const response = await fetch('games/deleteGame', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
