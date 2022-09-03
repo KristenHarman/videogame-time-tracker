@@ -6,7 +6,7 @@ const GameSchema = new mongoose.Schema({
     required: true,
   },
   health: {
-    Number,
+    type: Number,
     required: true,
   },
   completed: {
