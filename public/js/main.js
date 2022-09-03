@@ -79,22 +79,22 @@ async function markIncomplete(){
     }catch(err){
         console.log(err)
     }
-
-    async function decHealth(){
-        const gameId = this.parentNode.dataset.id
-        try{
-            const response = await fetch('games/decHealth', {
-                method: 'put',
-                headers: {'Content-type': 'application/json'},
-                body: JSON.stringify({
-                    'gameIdFromJSFile': gameId
-                })
+}
+    
+async function decHealth(){
+    const gameId = this.parentNode.dataset.id
+    try{
+        const response = await fetch('games/decHealth', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'gameIdFromJSFile': gameId
             })
-            const data = await response.json()
-            console.log(data)
-            location.reload()
-        }catch(err){
-            console.log(err)
-        }
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
     }
 }
