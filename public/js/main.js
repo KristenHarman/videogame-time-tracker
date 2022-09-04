@@ -1,8 +1,8 @@
 const deleteBtn = document.querySelectorAll('.del')
 const gameItem = document.querySelectorAll('span.not')
 const gameComplete = document.querySelectorAll('span.completed')
-const oneHour = document.querySelectorAll('.oneHourIncExp')
-const decHealthBtn = document.querySelectorAll('.decHealth')
+// const oneHour = document.querySelectorAll('.oneHourIncExp')
+// const decHealthBtn = document.querySelectorAll('.decHealth')
 
 
 Array.from(deleteBtn).forEach((el)=>{
@@ -17,13 +17,13 @@ Array.from(gameComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
-Array.from(oneHour).forEach((el)=>{
-    el.addEventListener('click', )
-})
+// Array.from(oneHour).forEach((el)=>{
+//     el.addEventListener('click', )
+// })
 
-Array.from(decHealthBtn).forEach((el)=>{
-    el.addEventListener('click', decHealth)
-})
+// Array.from(decHealthBtn).forEach((el)=>{
+//     el.addEventListener('click', decHealth)
+// })
 
 async function deleteGame(){
     const gameId = this.parentNode.dataset.id
@@ -79,25 +79,20 @@ async function markIncomplete(){
     }
 }
 
-    // Start of Decrease health code 
-
-async function decHealth(){
-    const gameId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('games/decHealth', {
-            method: 'put',
-            decHealth:  function decHealth(){
-                        var health = document.getElementById("health")
-                        health.value -= 10; },
-             headers: {'Content-type':'application/json'},
-            body: JSON.stringify({
-                'gameIdFromJSFile': gameId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
-}
+// async function decHealth(){
+//     const gameId = this.parentNode.dataset.id
+//     try{
+//         const response = await fetch('games/decHealth', {
+//             method: 'put',
+//             headers: {'Content-type':'application/json'},
+//             body: JSON.stringify({
+//                 'gameIdFromJSFile': gameId
+//             })
+//         })
+//         const data = await response.json()
+//         console.log(data)
+//         location.reload()
+//     }catch(err){
+//         console.log(err)
+//     }
+// }

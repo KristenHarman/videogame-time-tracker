@@ -5,10 +5,6 @@ const GameSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  health: {
-    type: Number,
-    required: true,
-  },
   completed: {
     type: Boolean,
     required: true,

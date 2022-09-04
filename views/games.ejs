@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Videogames</h1>
-    <ul>
+    <ul> 
     <% games.forEach( el => { %>
             <li class='gameItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.game %></span>
@@ -17,6 +17,7 @@
             </li>
     <% }) %>    
     </ul>
+    
 
     <h2><%= user.userName %> has <%= left %> game(s) left to finish.</h2>
 
