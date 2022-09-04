@@ -25,11 +25,30 @@
         <input type="submit">
     </form>
 
+   
     <h4>Health</h4>
     <progress id="health" value="100" max="100"></progress>
     <button class="decHealth">Missed a day</button>
-
     
+    <!-- <script src="js/main.js"></script> -->
+
+<script>
+
+const decHealth= document.querySelectorAll('.decHealth')
+
+
+Array.from(decHealth).forEach((el)=>{
+    el.addEventListener('click', decHealth)
+
+ function decHealth(){
+            var health = document.getElementById("health")
+            health.value -= 10; 
+                }
+            })
+
+
+</script>
+
   <!-- EXP Bar  -->
  <h4>EXP</h4>
   <progress id="exp" value="0" max="100"></progress>
@@ -44,5 +63,8 @@
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
+ 
+
+
 </body>
 </html>
