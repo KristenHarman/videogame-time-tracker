@@ -6,14 +6,14 @@ module.exports = {
         try{
             const gameItems = await Game.find({userId:req.user.id})
             const gamesLeft = await Game.countDocuments({userId:req.user.id,completed: false})
-            res.render('games.ejs', {games: gameItems, left: gamesLeft, user: req.user})
+            res.render('games.ejs', {games: gameItems, left: gamesLeft,  user: req.user})
         }catch(err){
             console.log(err)
         }
     },
     createGame: async (req, res)=>{
         try{
-            await Game.create({game: req.body.gameItem,
+            await Game.create({title: req.body.gameItem, hours: req.body.hoursPlayed, day: req.body.dayPlayed,
             completed: false, userId: req.user.id})
             console.log('Game has been added!')
             res.redirect('/games')
@@ -21,23 +21,13 @@ module.exports = {
             console.log(err)
         }
     },
-    // decHealth: async (req, res) => {
-    //     try{
-    //         await Game.findOneAndUpdate({_id:req.body.gameIdFromJSFile},{
-    //             health:  {$gte: 0}}, 
-    //             { $inc: {health: -10 } })
-    //             console.log('Health  has been decreased!')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
     markComplete: async (req, res)=>{
         try{
             await Game.findOneAndUpdate({_id:req.body.gameIdFromJSFile},{
                 completed: true
             })
             console.log('Marked Complete')
-            res.json('Marked Complete')
+            res.redirect('/games')
         }catch(err){
             console.log(err)
         }

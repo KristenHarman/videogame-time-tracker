@@ -8,42 +8,47 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Videogames</h1>
-    <ul> 
-    <% games.forEach( el => { %>
-            <li class='gameItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.game %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-    
+    <h1>Create Your Videogame Time Tracker</h1>
 
-    <h2><%= user.userName %> has <%= left %> game(s) left to finish.</h2>
-
+    <h2>Please enter your Game Title, Hours Played, and Day Played:</h2>
     <form action="/games/createGame" method='POST'>
         <input type="text" placeholder="Enter Game" name='gameItem'>
+        <input type="text" placeholder="Enter Hours Played" name='hoursPlayed'>
+        <input type="text" placeholder="Enter Day Played" name='dayPlayed'>
         <input type="submit">
     </form>
-
-    <h4>Health</h4>
-    <progress id="health" value="100" max="100"></progress>
-    <button class="decHealth">Missed a day</button>
-
     
-  <!-- EXP Bar  -->
- <h4>EXP</h4>
-  <progress id="exp" value="0" max="100"></progress>
- 
- <h4>Game Progress</h4>
-  <progress id="progress" value="0" max="100"></progress>
+    <ul class="game-list">
+        <% games.forEach(details => { %>
+            <li class="game-list-item">
+                <div class="game-list-item-title"><%= details.title %></div>
+                <div class="game-list-item-hours"><%= details.hours %> hr(s) played</div>
+                <div class="game-list-item-day"><%= details.day %></div>
+            </li>
+        <% }) %>
+    </ul>
 
+    <!-- <h2>Finished that game? Click on the underlined name to mark as complete.</h2>
+    <h2>Want to delete it? Click delete.</h2> -->
 
-  <button class="oneHourIncExp">Played one hour</button>
+    <ul> 
+        <% games.forEach( el => { %>
+        <h3>Finished that game? Click on the underlined name to mark as complete.</h3>
+         <h3>Want to delete it? Click delete.</h3>
+                <li class='gameItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.title %></span>
+                    <span class='del'> Delete </span>
+                </li>
+        <% }) %>    
+        </ul>
 
+    <h3><%= user.userName %> has <%= left %> game(s) left to play.</h3>
 
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
+ 
+
+
 </body>
 </html>

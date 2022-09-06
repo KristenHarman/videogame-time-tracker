@@ -1,7 +1,15 @@
 const mongoose = require('mongoose')
 
 const GameSchema = new mongoose.Schema({
-  game: {
+  title: {
+    type: String,
+    required: true,
+  },
+  hours: {
+    type: Number,
+    required: true,
+  },
+  day: {
     type: String,
     required: true,
   },
